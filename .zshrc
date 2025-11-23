@@ -5,7 +5,8 @@
 eval "$(starship init zsh)"
 
 # Exports
-export PATH="/opt/homebrew/opt/openjdk@24/bin/:$PATH"
+export PATH="/opt/homebrew/opt/openjdk@25/bin/:$PATH"
+export PATH="/opt/homebrew/opt/trash-cli/bin:$PATH"
 export JAVA_HOME=`/usr/libexec/java_home -v 25`
 export EDITOR="emacs -nw"
 export VISUAL="emacs -nw"
@@ -17,8 +18,9 @@ export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=44;33:cd=44;37:su=41;37:sg=46
 alias vi='nvim'
 alias vim='nvim'
 alias cat='ccat'
-alias ls='ls -G'
-alias ll='ls -la'
+alias ls="eza --git --icons --color=auto --group-directories-first"
+alias ll="eza -l --git --icons --color=auto --group-directories-first"
+alias la="eza -la --git --icons --color=auto --group-directories-first"
 alias disablesleep="sudo pmset -a disablesleep 1"
 alias enablesleep="sudo pmset -a disablesleep 0"
 alias nvim-config="cd $HOME/.config/nvim"
@@ -33,6 +35,7 @@ alias c='clear'
 alias l='lazygit'
 alias n='nvim .'
 alias obsidian="cd $HOME/obsidian/"
+alias rm='echo "This is not the command you are looking for."; false'
 
 # Docker Aliases
 alias docker-compose-up='docker-compose up --detach'
