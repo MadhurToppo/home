@@ -42,11 +42,10 @@ alias docker-stop-all='docker stop $(docker ps -a -q)'
 alias docker-remove-all='docker rm $(docker ps -a -q)'
 
 # Emacs Aliases
-alias emacs="emacsclient -t"
+alias e="emacsclient -t"
 alias emacs-ui='emacsclient -c'
 alias emacs-server-start='emacs --daemon'
 alias emacs-server-stop="emacsclient -e '(kill-emacs)'"
-alias e='emacs -nw'
 
 # Start Emacs daemon if not already running
 if ! emacsclient -e "(emacs-pid)" >/dev/null 2>&1; then
