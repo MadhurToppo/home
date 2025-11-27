@@ -69,6 +69,24 @@ fpath=(
 autoload -Uz compinit
 compinit
 
+# Chord conversion
+crd() {
+    if [ -z "$1" ]; then
+        echo "Usage: crd <file>"
+        return 1
+    fi
+
+    local file="$1"
+    chordpro --a2crd -o "$file" "$file"
+
+    if [ $? -eq 0 ]; then
+        echo "Converted $file in-place"
+    else
+        echo "Conversion failed!"
+        return 1
+    fi
+}
+
 # source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
